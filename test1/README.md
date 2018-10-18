@@ -7,7 +7,7 @@ WHERE d.department_id = e.department_id
 and d.department_name in ('IT'，'Sales')
 GROUP BY department_name;
 </pre>
-## 执行查询语句1的结果:
+## 执行查询语句1的结果
 ![](https://github.com/llwaves/oracle/blob/master/test1/sql1.PNG)
 ![](https://github.com/llwaves/oracle/blob/master/test1/sql1_3.PNG)
 ![](https://github.com/llwaves/oracle/blob/master/test1/sql1_1.PNG)</br>
@@ -19,7 +19,7 @@ FROM hr.departments d，hr.employees e
 WHERE d.department_id = e.department_id
 GROUP BY department_name
 HAVING d.department_name in ('IT'，'Sales');</pre>
-## 执行查询语句2的结果:
+## 执行查询语句2的结果
 ![](https://github.com/llwaves/oracle/blob/master/test1/sql2.PNG)
 ![](https://github.com/llwaves/oracle/blob/master/test1/sql2_2.PNG)
 ![](https://github.com/llwaves/oracle/blob/master/test1/sql2_1.PNG)
