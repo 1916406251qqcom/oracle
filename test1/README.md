@@ -10,8 +10,7 @@ GROUP BY department_name;
 ## 执行查询语句1的结果:
 ![](https://github.com/llwaves/oracle/blob/master/test1/sql1.PNG)
 ![](https://github.com/llwaves/oracle/blob/master/test1/sql1_3.PNG)
-![](https://github.com/llwaves/oracle/blob/master/test1/sql1_1.PNG)
-</br>
+![](https://github.com/llwaves/oracle/blob/master/test1/sql1_1.PNG)</br>
 查询语句1的consistent gets=5，cost成本=2。
 ## 查询语句2
 <pre>
@@ -19,8 +18,7 @@ SELECT d.department_name，count(e.job_id)as "部门总人数",avg(e.salary)as "
 FROM hr.departments d，hr.employees e
 WHERE d.department_id = e.department_id
 GROUP BY department_name
-HAVING d.department_name in ('IT'，'Sales');
-</pre>
+HAVING d.department_name in ('IT'，'Sales');</pre>
 ## 执行查询语句2的结果:
 ![](https://github.com/llwaves/oracle/blob/master/test1/sql2.PNG)
 ![](https://github.com/llwaves/oracle/blob/master/test1/sql2_2.PNG)
@@ -40,7 +38,6 @@ WHERE e.department_id=d.department_id and d.location_id=l.location_id and e.sala
 GROUP BY  department_name, d.department_name, e.salary, l.city
 HAVING count(*)>2;
 </pre>
-此查询语句是查询部门中工资高于3000的员工数量超过2人的部门，显示部门名字、地区名称，工资。查询结果为：
-</br>
+此查询语句是查询部门中工资高于3000的员工数量超过2人的部门，显示部门名字、地区名称，工资。查询结果为：</br></br>
 ![](https://github.com/llwaves/oracle/blob/master/test1/sql3.PNG)
 
