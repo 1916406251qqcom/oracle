@@ -31,7 +31,7 @@ HAVING d.department_name in ('IT'，'Sales');
 执行上面的两个查询语句后得知，两个查询语句查询结果相同，但查询语句1查询时间更少，而且consistent gets及cost成本都要小于查询语句2，所有查询语句1更优。
 ## 查询语句1通过sqldeveloper的优化指导工具进行优化指导结果
 ![](https://github.com/llwaves/oracle/blob/master/test1/sql1_2.PNG)
-通过Sqldeveloper优化指导工具进行指导优化后，发现已经是最佳优化了。
+通过Sqldeveloper优化指导工具进行指导优化后，发现已经是最佳优化。
 ## 自己的查询语句
 <pre>
 SELECT d.department_name,e.salary,l.city, count(*) 
@@ -40,5 +40,6 @@ WHERE e.department_id=d.department_id and d.location_id=l.location_id and e.sala
 GROUP BY  department_name, d.department_name, e.salary, l.city
 HAVING count(*)>2;
 </pre>
-此查询语句是查询部门中工资高于3000的员工数量超过2人的部门，显示部门名字、地区名称，工资。
+此查询语句是查询部门中工资高于3000的员工数量超过2人的部门，显示部门名字、地区名称，工资。查询结果为：
+![](https://github.com/llwaves/oracle/blob/master/test1/sql3.PNG)
 
