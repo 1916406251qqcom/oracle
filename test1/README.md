@@ -35,9 +35,9 @@ HAVING d.department_name in ('IT'，'Sales');</pre>
 SELECT d.department_name,e.salary,l.city, count(*) 
 FROM hr.employees e,hr.departments d ,hr.locations l
 WHERE e.department_id=d.department_id and d.location_id=l.location_id and e.salary>3000
-GROUP BY  department_name, d.department_name, e.salary, l.city
+GROUP BY department_name, d.department_name, e.salary, l.city
 HAVING count(*)>2;
 </pre>
-此查询语句是查询部门中工资高于3000的员工数量超过2人的部门，显示部门名字、地区名称，工资。查询结果为：</br></br>
+此查询语句是查询部门中工资高于3000的员工数量超过2人的部门，显示部门名字、地区名称，工资。count计数工资高于3000的员工数量，最后由HAVING判断员工数量大于2的部门。查询结果为：</br></br>
 ![](https://github.com/llwaves/oracle/blob/master/test1/sql3.PNG)
 
