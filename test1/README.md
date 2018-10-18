@@ -6,11 +6,11 @@ FROM hr.departments d，hr.employees e
 WHERE d.department_id = e.department_id and d.department_name in ('IT'，'Sales')
 GROUP BY department_name;
 </pre>
-## 执行查询语句1的结果
+## 执行查询语句1的结果及对语句1的分析
 ![](https://github.com/llwaves/oracle/blob/master/test1/sql1.PNG)
 ![](https://github.com/llwaves/oracle/blob/master/test1/sql1_3.PNG)
 ![](https://github.com/llwaves/oracle/blob/master/test1/sql1_1.PNG)</br>
-查询语句1使用where来约束来自数据库的数据，Where是在结果返回之前起作用的。</br>
+查询语句1使用WHERE来约束来自数据库的数据，即要在两个部门('IT'和'Sales')中查询。WHERE是在结果返回之前起作用的。</br>
 查询语句1的consistent gets=5，cost成本=2。
 ## 查询语句2
 <pre>
@@ -19,11 +19,11 @@ FROM hr.departments d，hr.employees e
 WHERE d.department_id = e.department_id
 GROUP BY department_name
 HAVING d.department_name in ('IT'，'Sales');</pre>
-## 执行查询语句2的结果
+## 执行查询语句2的结果及对语句2的分析
 ![](https://github.com/llwaves/oracle/blob/master/test1/sql2.PNG)
 ![](https://github.com/llwaves/oracle/blob/master/test1/sql2_2.PNG)
 ![](https://github.com/llwaves/oracle/blob/master/test1/sql2_1.PNG)</br>
-查询语句2使用HAVING是在查询返回结果集以后对查询结果进行的过滤操作.</br>
+查询语句2使用HAVING是在查询返回结果集以后对查询结果进行的过滤操作。来筛选结果中满足条件的组，即部门名称为'IT'和'Sales'。</br>
 查询语句2的consistent gets=8，cost成本=5。
 ## 执行结果分析
 执行上面的两个查询语句后得知，两个查询语句查询结果相同，但查询语句1查询时间更少，而且consistent gets及cost成本都要小于查询语句2，所有查询语句1更优。
