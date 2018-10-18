@@ -10,8 +10,8 @@ GROUP BY department_name;
 </pre>
 ## 执行查询语句1的结果:
 ![](https://github.com/llwaves/oracle/blob/master/test1/sql1.PNG)
-![](https://github.com/llwaves/oracle/blob/master/test1/sql1_1.PNG)
 ![](https://github.com/llwaves/oracle/blob/master/test1/sql1_3.PNG)
+![](https://github.com/llwaves/oracle/blob/master/test1/sql1_1.PNG)
 查询语句1的consistent gets=5，cost成本=2。
 ## 查询语句2：
 <pre>
@@ -24,8 +24,8 @@ HAVING d.department_name in ('IT'，'Sales');
 </pre>
 ## 执行查询语句2的结果:
 ![](https://github.com/llwaves/oracle/blob/master/test1/sql2.PNG)
-![](https://github.com/llwaves/oracle/blob/master/test1/sql2_1.PNG)
 ![](https://github.com/llwaves/oracle/blob/master/test1/sql2_2.PNG)
+![](https://github.com/llwaves/oracle/blob/master/test1/sql2_1.PNG)
 查询语句1的consistent gets=5，cost成本=5。
 ## 执行结果分析
 执行上面的两个查询语句后得知，两个查询语句查询结果相同，但查询语句1查询时间更少，而且consistent gets及cost成本都要小于查询语句2，所有查询语句1更优。
