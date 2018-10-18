@@ -41,5 +41,6 @@ GROUP BY  department_name, d.department_name, e.salary, l.city
 HAVING count(*)>2;
 </pre>
 此查询语句是查询部门中工资高于3000的员工数量超过2人的部门，显示部门名字、地区名称，工资。查询结果为：
+</br>
 ![](https://github.com/llwaves/oracle/blob/master/test1/sql3.PNG)
 
