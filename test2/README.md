@@ -7,7 +7,7 @@ Copyright (c) 1982, 2014, Oracle.  All rights reserved.
 上次成功登录时间: 星期三 10月 24 2018 08:50:49 +08:00
 连接到:
 Oracle Database 12c Enterprise Edition Release 12.1.0.2.0 - 64bit Production
-With the Partitioning, OLAP, Advanced Analytics and Real Application Testing options                                                           
+With the Partitioning, OLAP, Advanced Analytics and Real Application Testing options
 SQL> create role con_res_view_l;
 角色已创建。
 SQL> grant connect,resource,create view to con_res_view_l;
