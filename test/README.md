@@ -48,7 +48,7 @@ SQL> GRANT SELECT ON myview TO hr;
 授权成功。
 SQL> exit
 </pre>
-## 用户hr连接到pdborcl，查询new_user授予它的视图myview。
+## 第三步：用户hr连接到pdborcl，查询new_user授予它的视图myview。
 <pre>
 [oracle@deep02 ~]$ sqlplus hr/123@pdborcl
 SQL*Plus: Release 12.1.0.2.0 Production on 星期三 10月 24 09:05:18 2018
