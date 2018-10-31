@@ -49,7 +49,7 @@ SQL> GRANT SELECT ON myview TO hr;
 授权成功。
 SQL> exit
 </pre>
-创建一个名为mytable的表，并向表中插入相关值，并将查询权限赋给hr用户,让hr用户可以查询表中的值。
+> 创建一个名为mytable的表，并向表中插入相关值，并将查询权限赋给hr用户,让hr用户可以查询表中的值。
 * 第三步：用户hr连接到pdborcl，查询new_user授予它的视图myview。
 <pre>
 [oracle@deep02 ~]$ sqlplus hr/123@pdborcl
@@ -69,7 +69,7 @@ wang
 
 SQL> exit
 </pre>
-## 第四步：查看数据库的使用情况
+* 第四步：查看数据库的使用情况
 <pre>
 [oracle@deep02 ~]$ sqlplus system/123@pdborcl
 
@@ -125,3 +125,9 @@ SQL> exit
 * autoextensible是显示表空间中的数据文件是否自动增加。
 * MAX_MB是指数据文件的最大容量。
 ## 总结分析
+<pre>
+1. 数据库pdborcl中包含了自己和其他同学的角色和用户
+2. 所有同学的用户都使用表空间users存储表的数据。
+3. 表空间中存储了很多相同名称的表mytable和视图myview，但分别属性于不同的用户，不会引起混淆。
+4 .随着用户往表中插入数据，表空间的磁盘使用量会增加。
+</pre>
