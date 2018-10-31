@@ -20,7 +20,7 @@ SQL> grant con_res_view_l to llwaves;
 授权成功。
 SQL> exit
 </pre>
-语句“ALTER USER new_user QUOTA 50M ON users;”是指授权new_user用户访问users表空间，空间限额是50M。
+> 语句“ALTER USER new_user QUOTA 50M ON users;”是指授权new_user用户访问users表空间，空间限额是50M。
 * 第2步：新用户new_user连接到pdborcl，创建表mytable和视图myview，插入数据，最后将myview的SELECT对象权限授予hr用户。
 <pre>
 [oracle@deep02 ~]$ sqlplus llwaves/123@pdborcl
