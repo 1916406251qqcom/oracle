@@ -1,5 +1,6 @@
 # 实验二：用户管理 - 掌握管理角色、权根、用户的能力，并在用户之间共享对象
-## 第1步：以system登录到pdborcl，创建角色con_res_view和用户new_user，并授权和分配空间：
+## 实验步骤
+* 第1步：以system登录到pdborcl，创建角色con_res_view和用户new_user，并授权和分配空间：
 <pre>
 SQL*Plus: Release 12.1.0.2.0 Production on 星期三 10月 24 08:51:07 2018
 Copyright (c) 1982, 2014, Oracle.  All rights reserved.
@@ -20,7 +21,7 @@ SQL> grant con_res_view_l to llwaves;
 SQL> exit
 </pre>
 语句“ALTER USER new_user QUOTA 50M ON users;”是指授权new_user用户访问users表空间，空间限额是50M。
-## 第2步：新用户new_user连接到pdborcl，创建表mytable和视图myview，插入数据，最后将myview的SELECT对象权限授予hr用户。
+* 第2步：新用户new_user连接到pdborcl，创建表mytable和视图myview，插入数据，最后将myview的SELECT对象权限授予hr用户。
 <pre>
 [oracle@deep02 ~]$ sqlplus llwaves/123@pdborcl
 SQL*Plus: Release 12.1.0.2.0 Production on 星期三 10月 24 09:01:02 2018
@@ -48,7 +49,8 @@ SQL> GRANT SELECT ON myview TO hr;
 授权成功。
 SQL> exit
 </pre>
-## 第三步：用户hr连接到pdborcl，查询new_user授予它的视图myview。
+创建一个名为mytable的表，并向表中插入相关值，并将查询权限赋给hr用户,让hr用户可以查询表中的值。
+* 第三步：用户hr连接到pdborcl，查询new_user授予它的视图myview。
 <pre>
 [oracle@deep02 ~]$ sqlplus hr/123@pdborcl
 SQL*Plus: Release 12.1.0.2.0 Production on 星期三 10月 24 09:05:18 2018
@@ -67,7 +69,7 @@ wang
 
 SQL> exit
 </pre>
-## 查看数据库的使用情况
+## 第四步：查看数据库的使用情况
 <pre>
 [oracle@deep02 ~]$ sqlplus system/123@pdborcl
 
@@ -120,3 +122,6 @@ EXAMPLE
 
 SQL> exit
 </pre>
+* autoextensible是显示表空间中的数据文件是否自动增加。
+* MAX_MB是指数据文件的最大容量。
+## 总结分析
