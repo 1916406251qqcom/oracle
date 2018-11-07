@@ -6,7 +6,7 @@
 
 ## 实验步骤
 
-主表orders和从表order_details之间建立引用分区。在study用户中创建两个表：orders（订单表）和order_details（订单详表），两个表通过列order_id建立主外键关联。orders表按范围分区进行存储，order_details使用引用分区进行存储。<br>
+主表orders和从表order_details之间建立引用分区。在用户中创建两个表：orders（订单表）和order_details（订单详表），两个表通过列order_id建立主外键关联。orders表按范围分区进行存储，order_details使用引用分区进行存储。<br>
 1. 登录自己的账号：llwaves
 <pre>[oracle@deep02 ~]$ sqlplus llwaves/123@pdborcl
 
