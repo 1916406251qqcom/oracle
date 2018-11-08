@@ -205,12 +205,13 @@ end loop;
 commit;
 end;
 </pre>
-## 联合查询语句。
+7. 联合查询语句。
 <pre>
 SELECT * FROM orders,order_details  Where orders.order_id = order_details.order_id AND customer_tel like '%151%'
 </pre>
-## 对查询语句进行分析语句的执行计划。
+8. 对查询语句进行分析语句的执行计划。
 ![](https://github.com/llwaves/oracle/blob/master/test3/3_1.PNG)
 <br>
+## 总结
 进行分区后的表查询效率更高。
 
