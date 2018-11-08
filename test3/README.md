@@ -179,7 +179,7 @@ SQL>ALTER USER llwaves QUOTA 50M ON users03;
 用户已更改。
 SQL> exit
 </pre>
-5. 给用户进行分配可查询的权限。
+5. 给用户分配可查询的权限。
 <pre>
 grant SELECT on "LLWAVES"."ORDERS" to "LLWAVES" ;
 grant SELECT on "LLWAVES"."ORDER_DETAILS" to "LLWAVES" ;
