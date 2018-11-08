@@ -180,7 +180,10 @@ SQL>ALTER USER llwaves QUOTA 50M ON users03;
 SQL> exit
 </pre>
 5. 给用户进行分配可查询的权限。
-![](https://github.com/llwaves/oracle/blob/master/test3/3_2.PNG)
+<pre>
+grant SELECT on "LLWAVES"."ORDERS" to "LLWAVES" ;
+grant SELECT on "LLWAVES"."ORDER_DETAILS" to "LLWAVES" ;
+</pre>
 6. 向表中插入一万条数据
 * 向orders表中插入一万条数据。
 <pre>
@@ -202,3 +205,10 @@ end loop;
 commit;
 end;
 </pre>
+## 联合查询语句。
+<pre>
+SELECT * FROM orders,order_details  Where orders.order_id = order_details.order_id AND customer_tel like '%151%'
+</pre>
+## 对查询语句进行分析语句的执行计划。
+![](https://github.com/llwaves/oracle/blob/master/test3/3_1.PNG)
+
