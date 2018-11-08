@@ -7,8 +7,9 @@
 ## 实验步骤
 
 主表orders和从表order_details之间建立引用分区。在用户中创建两个表：orders（订单表）和order_details（订单详表），两个表通过列order_id建立主外键关联。orders表按范围分区进行存储，order_details使用引用分区进行存储。<br>
-1. 登录自己的账号：llwaves
-<pre>[oracle@deep02 ~]$ sqlplus llwaves/123@pdborcl
+1. 登录自己的账号：llwaves。
+<pre>
+[oracle@deep02 ~]$ sqlplus llwaves/123@pdborcl
 
 SQL*Plus: Release 12.1.0.2.0 Production on 星期三 11月 7 09:38:22 2018
 
@@ -178,11 +179,11 @@ SQL>ALTER USER llwaves QUOTA 50M ON users03;
 用户已更改。
 SQL> exit
 </pre>
-5. 给用户进行分配可查询的权限
+5. 给用户进行分配可查询的权限。
 ![](https://github.com/llwaves/oracle/blob/master/test1/sql1.PNG)
 6. 向表中插入一万条数据
+* 向orders表中插入一万条数据。
 <pre>
-* 向orders表中插入一万条数据
 begin
 for i in 1..10000
 loop
@@ -190,7 +191,9 @@ loop
 end loop;
 commit;
 end;
-* 向details表中插入一万条数据
+</pre>
+* 向orders_details表中插入一万条数据。
+<pre>
 begin
 for i in 1..10000
 loop
