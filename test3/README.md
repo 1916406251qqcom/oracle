@@ -173,13 +173,13 @@ Copyright (c) 1982, 2014, Oracle.  All rights reserved.
 连接到:
 Oracle Database 12c Enterprise Edition Release 12.1.0.2.0 - 64bit Production
 With the Partitioning, OLAP, Advanced Analytics and Real Application Testing options
-SQL>ALTER USER llwaves QUOTA 50M ON users02;
+SQL> ALTER USER llwaves QUOTA 50M ON users02;
 用户已更改。
-SQL>ALTER USER llwaves QUOTA 50M ON users03;
+SQL> ALTER USER llwaves QUOTA 50M ON users03;
 用户已更改。
 SQL> exit
 </pre>
-5. 给用户分配可查询的权限。
+5. 给用户分配可查询的权限的语句。
 <pre>
 grant SELECT on "LLWAVES"."ORDERS" to "LLWAVES" ;
 grant SELECT on "LLWAVES"."ORDER_DETAILS" to "LLWAVES" ;
