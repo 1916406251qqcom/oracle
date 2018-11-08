@@ -180,7 +180,7 @@ SQL>ALTER USER llwaves QUOTA 50M ON users03;
 SQL> exit
 </pre>
 5. 给用户进行分配可查询的权限。
-![](https://github.com/llwaves/oracle/blob/master/test1/sql1.PNG)
+![](https://github.com/llwaves/oracle/blob/master/test3/3_2.PNG)
 6. 向表中插入一万条数据
 * 向orders表中插入一万条数据。
 <pre>
