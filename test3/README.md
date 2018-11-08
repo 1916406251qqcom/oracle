@@ -162,3 +162,8 @@ BUFFER_POOL DEFAULT
 SQL>
 
 </pre>
+4. 用system用户授权自己的账号访问USERS02,USERS03表空间。
+<pre>
+ALTER USER llwaves QUOTA 50M ON users02;
+ALTER USER llwaves QUOTA 50M ON users02;
+</pre>
