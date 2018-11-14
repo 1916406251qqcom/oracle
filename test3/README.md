@@ -9,7 +9,23 @@
 ## 实验步骤
 
 主表orders和从表order_details之间建立引用分区。在用户中创建两个表：orders（订单表）和order_details（订单详表），两个表通过列order_id建立主外键关联。orders表按范围分区进行存储，order_details使用引用分区进行存储。<br>
-1. 登录自己的账号：llwaves。
+1. 登录system用户，用system用户授权自己的账号访问USERS02,USERS03表空间。
+<pre>
+SQL*Plus: Release 12.1.0.2.0 Production on 星期三 11月 7 09:40:22 2018
+
+Copyright (c) 1982, 2014, Oracle.  All rights reserved.
+
+上次成功登录时间: 星期三 11月 07 2018 08:44:05 +08:00
+连接到:
+Oracle Database 12c Enterprise Edition Release 12.1.0.2.0 - 64bit Production
+With the Partitioning, OLAP, Advanced Analytics and Real Application Testing options
+SQL> ALTER USER llwaves QUOTA 50M ON users02;
+用户已更改。
+SQL> ALTER USER llwaves QUOTA 50M ON users03;
+用户已更改。
+SQL> exit
+</pre>
+2. 登录自己的账号：llwaves去创建表。
 <pre>
 [oracle@deep02 ~]$ sqlplus llwaves/123@pdborcl
 
@@ -25,7 +41,7 @@ With the Partitioning, OLAP, Advanced Analytics and Real Application Testing opt
 
 SQL>
 </pre>
-2. 创建orders表语句及结果。
+3. 创建orders表语句及结果。
 <pre>
 SQL>CREATE TABLE orders 
 (
@@ -98,7 +114,7 @@ BUFFER_POOL DEFAULT
 SQL>
 
 </pre>
-3. 创建order_details表语句及结果。
+4. 创建order_details表语句及结果。
 <pre>
 SQL>CREATE TABLE order_details 
 (
@@ -165,22 +181,7 @@ BUFFER_POOL DEFAULT
 SQL>
 
 </pre>
-4. 用system用户授权自己的账号访问USERS02,USERS03表空间。
-<pre>
-SQL*Plus: Release 12.1.0.2.0 Production on 星期三 11月 7 09:40:22 2018
 
-Copyright (c) 1982, 2014, Oracle.  All rights reserved.
-
-上次成功登录时间: 星期三 11月 07 2018 08:44:05 +08:00
-连接到:
-Oracle Database 12c Enterprise Edition Release 12.1.0.2.0 - 64bit Production
-With the Partitioning, OLAP, Advanced Analytics and Real Application Testing options
-SQL> ALTER USER llwaves QUOTA 50M ON users02;
-用户已更改。
-SQL> ALTER USER llwaves QUOTA 50M ON users03;
-用户已更改。
-SQL> exit
-</pre>
 5. 给用户分配可查询的权限的语句。
 <pre>
 grant SELECT on "LLWAVES"."ORDERS" to "LLWAVES" ;
