@@ -218,4 +218,5 @@ SELECT * FROM orders,order_details  Where orders.order_id = order_details.order_
 ## 总结
 
 进行分区后的表查询效率更高。
+掌握了分区表的创建和使用。
 
