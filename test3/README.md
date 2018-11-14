@@ -198,7 +198,7 @@ end loop;
 commit;
 end;
 </pre>
-* 向orders_details表中插入一万条数据。
+* 向order_details表中插入一万条数据。
 <pre>
 begin
 for i in 1..10000
