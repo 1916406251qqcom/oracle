@@ -43,7 +43,7 @@ SQL>
 </pre>
 3. 创建orders表语句及结果。
 <pre>
-SQL>CREATE TABLE orders 
+SQL> CREATE TABLE orders 
 (
  order_id   NUMBER(10, 0)  primary key NOT NULL 
  , customer_name VARCHAR2(40 BYTE) NOT NULL 
@@ -115,7 +115,7 @@ SQL>
 </pre>
 4. 创建order_details表语句及结果。
 <pre>
-SQL>CREATE TABLE order_details 
+SQL> CREATE TABLE order_details 
 (
 id NUMBER(10, 0) NOT NULL 
 , order_id NUMBER(10, 0) NOT NULL
