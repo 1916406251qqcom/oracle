@@ -5,7 +5,8 @@
 ## 实验步骤
 * 登录system账号，为自己的账号llwaves分配相关权限。
 <pre>
-[oracle@deep02 ~]$ sqlplus system/123@pdborcl                                                       
+[oracle@deep02 ~]$ sqlplus system/123@pdborcl
+
 SQL> ALTER USER llwaves QUOTA UNLIMITED ON USERS;
 用户已更改。
 SQL> ALTER USER llwaves QUOTA UNLIMITED ON USERS02;
@@ -24,3 +25,52 @@ SQL> exit
 </pre>
 * 登录自己的账号：llwaves去创建相关的表。
 1. 创建部门表DEPARTMENTS,表空间：USERS。
+<pre>
+[oracle@deep02 ~]$ sqlplus llwaves/123@pdborcl
+
+CREATE TABLE DEPARTMENTS
+(
+  DEPARTMENT_ID NUMBER(6, 0) NOT NULL
+, DEPARTMENT_NAME VARCHAR2(40 BYTE) NOT NULL
+, CONSTRAINT DEPARTMENTS_PK PRIMARY KEY
+  (
+    DEPARTMENT_ID
+  )
+  USING INDEX
+  (
+      CREATE UNIQUE INDEX DEPARTMENTS_PK ON DEPARTMENTS (DEPARTMENT_ID ASC)
+      NOLOGGING
+      TABLESPACE USERS
+      PCTFREE 10
+      INITRANS 2
+      STORAGE
+      (
+        INITIAL 65536
+        NEXT 1048576
+        MINEXTENTS 1
+        MAXEXTENTS UNLIMITED
+        BUFFER_POOL DEFAULT
+      )
+      NOPARALLEL
+  )
+  ENABLE
+)
+NOLOGGING
+TABLESPACE USERS
+PCTFREE 10
+INITRANS 1
+STORAGE
+(
+  INITIAL 65536
+  NEXT 1048576
+  MINEXTENTS 1
+  MAXEXTENTS UNLIMITED
+  BUFFER_POOL DEFAULT
+)
+NOCOMPRESS NO INMEMORY NOPARALLEL;
+
+表已创建。
+
+SQL>
+
+</pre>
