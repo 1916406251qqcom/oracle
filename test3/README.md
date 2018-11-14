@@ -108,7 +108,6 @@ BUFFER_POOL DEFAULT
 )
 );
 
-
 表已创建。
 
 SQL>
