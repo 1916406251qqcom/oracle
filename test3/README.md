@@ -1,6 +1,6 @@
 # 实验3：创建分区表
 
-## oracle用户名：llwaves
+## Oracle用户名：llwaves
 
 ## 实验目的
 
