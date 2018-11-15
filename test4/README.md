@@ -788,10 +788,6 @@ NOCOMPRESS;
 Index ORDERS_INDEX_DATE已变更。
 </pre>
 8. 执行测试。
-* 查询某个订单的信息。
-<pre>
-select * from ORDERS where order_id=100;
-<pre>
 * 递归查询某个员工及其所有下属，子下属员工。
 <pre>
 WITH A (EMPLOYEE_ID,NAME,EMAIL,PHONE_NUMBER,HIRE_DATE,SALARY,MANAGER_ID,DEPARTMENT_ID) AS
@@ -802,3 +798,8 @@ WITH A (EMPLOYEE_ID,NAME,EMAIL,PHONE_NUMBER,HIRE_DATE,SALARY,MANAGER_ID,DEPARTME
     FROM A, employees B WHERE A.EMPLOYEE_ID = B.MANAGER_ID)
 SELECT * FROM A;
 </pre>
+* 查询某个订单的信息。
+<pre>
+select * from ORDERS where order_id=100;
+<pre>
+
