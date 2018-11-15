@@ -633,7 +633,7 @@ Trigger "ORDER_DETAILS_SNTNS_TRIG"已变更。
 
 SQL> 
 </pre>
-* 创建SEQUENCE：SEQ_ORDER_ID、SEQ_ORDER_DETAILS_ID。
+* 创建序列SEQUENCE：SEQ_ORDER_ID、SEQ_ORDER_DETAILS_ID。
 <pre>
 [oracle@deep02 ~]$ sqlplus llwaves/123@pdborcl
 
@@ -702,7 +702,7 @@ insert into products (product_name,product_type) values ('paper1','耗材');
 insert into products (product_name,product_type) values ('paper2','耗材');
 insert into products (product_name,product_type) values ('paper3','耗材');
 </pre>
-* 批量插入订单数据，注意ORDERS.TRADE_RECEIVABLE（订单应收款）的自动计算,注意插入数据的速度。1万条记录，插入的时间是：6.212秒。
+* 批量插入订单数据。注意ORDERS.TRADE_RECEIVABLE（订单应收款）的自动计算,注意插入数据的速度。1万条记录，插入的时间是：6.212秒。
 <pre>
 declare
   dt date;
@@ -757,4 +757,48 @@ begin
 end;
 
 PL/SQL 过程已成功完成。
+</pre>
+<pre>
+ALTER TRIGGER "ORDERS_TRIG_ROW_LEVEL" ENABLE;
+
+Trigger "ORDERS_TRIG_ROW_LEVEL"已变更。
+</pre>
+<pre>
+ALTER TRIGGER "ORDER_DETAILS_SNTNS_TRIG" ENABLE;
+
+Trigger "ORDER_DETAILS_SNTNS_TRIG"已变更。
+</pre>
+<pre>
+ALTER TRIGGER "ORDER_DETAILS_ROW_TRIG" ENABLE;
+
+Trigger "ORDER_DETAILS_ROW_TRIG"已变更。
+</pre>
+* 最后动态增加一个PARTITION_BEFORE_2018分区。
+<pre>
+ALTER TABLE ORDERS
+ADD PARTITION PARTITION_BEFORE_2018 VALUES LESS THAN (TO_DATE(' 2018-01-01 00:00:00', 'SYYYY-MM-DD HH24:MI:SS', 'NLS_CALENDAR=GREGORIAN'));
+
+Table ORDERS已变更。
+</pre>
+<pre>
+ALTER INDEX ORDERS_INDEX_DATE
+MODIFY PARTITION PARTITION_BEFORE_2018
+NOCOMPRESS;
+
+Index ORDERS_INDEX_DATE已变更。
+</pre>
+8. 执行测试。
+* 查询某个订单的信息。
+<pre>
+select * from ORDERS where order_id=100;
+<pre>
+* 递归查询某个员工及其所有下属，子下属员工。
+<pre>
+WITH A (EMPLOYEE_ID,NAME,EMAIL,PHONE_NUMBER,HIRE_DATE,SALARY,MANAGER_ID,DEPARTMENT_ID) AS
+  (SELECT EMPLOYEE_ID,NAME,EMAIL,PHONE_NUMBER,HIRE_DATE,SALARY,MANAGER_ID,DEPARTMENT_ID
+    FROM employees WHERE employee_ID = 11
+    UNION ALL
+  SELECT B.EMPLOYEE_ID,B.NAME,B.EMAIL,B.PHONE_NUMBER,B.HIRE_DATE,B.SALARY,B.MANAGER_ID,B.DEPARTMENT_ID
+    FROM A, employees B WHERE A.EMPLOYEE_ID = B.MANAGER_ID)
+SELECT * FROM A;
 </pre>
