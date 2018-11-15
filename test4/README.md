@@ -798,8 +798,10 @@ WITH A (EMPLOYEE_ID,NAME,EMAIL,PHONE_NUMBER,HIRE_DATE,SALARY,MANAGER_ID,DEPARTME
     FROM A, employees B WHERE A.EMPLOYEE_ID = B.MANAGER_ID)
 SELECT * FROM A;
 </pre>
+![](https://github.com/llwaves/oracle/blob/master/test4/4_2.PNG)
 * 查询某个订单的信息。
 <pre>
 select * from ORDERS where order_id=100;
 <pre>
+![](https://github.com/llwaves/oracle/blob/master/test4/4_1.PNG)
 
