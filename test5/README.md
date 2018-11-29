@@ -106,7 +106,7 @@ END MyPack;
 </pre>
 * 测试语句
 <pre>
-set serveroutput on
+SET SERVEROUTPUT ON
 DECLARE
   V_EMPLOYEE_ID NUMBER;    
 BEGIN
