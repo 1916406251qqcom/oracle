@@ -804,3 +804,8 @@ WITH A (EMPLOYEE_ID,NAME,EMAIL,PHONE_NUMBER,HIRE_DATE,SALARY,MANAGER_ID,DEPARTME
 SELECT * FROM A;
 </pre>
 ![](https://github.com/llwaves/oracle/blob/master/test4/4_2.PNG)
+9. 总结
+* 学会了部分存储过程和触发器的使用。
+* 学会了使用SQL语句Create Table创建表。
+* 学会了Select语句插入，修改，删除以及查询数据。
+* 学会了使用SQL语句创建视图。
