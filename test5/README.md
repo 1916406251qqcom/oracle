@@ -19,7 +19,7 @@ CREATE or REPLACE PACKAGE MyPack IS
 END MyPack;
 </pre>
 
-2. 在MyPack中创建一个函数Get_SaleAmount_Department ，查询部门表，统计每个部门的销售总金额，每个部门的销售额是由该部门的员工(ORDERS.EMPLOYEE_ID)完成的销售额之和。函数SaleAmount要求输入的参数是部门号，输出部门的销售金额。
+2. 在MyPack中创建一个函数Get_SaleAmount_Department ，查询部门表，统计每个部门的销售总金额，每个部门的销售额是由该部门的员工(ORDERS.EMPLOYEE_ID)完成的销售额之和。函数Get_SaleAmount_Department要求输入的参数是部门号，输出部门的销售金额。
 * 创建函数Get_SaleAmount_Department输出部门的销售金额。
 <pre>
 CREATE or REPLACE PACKAGE BODY MyPack IS
