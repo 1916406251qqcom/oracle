@@ -23,7 +23,7 @@ SQL> GRANT CREATE VIEW TO llwaves WITH ADMIN OPTION;
 授权成功。
 SQL> exit
 </pre>
-* 登录自己的账号：llwaves去创建相关的表。
+* 登录自己的账号llwaves去创建相关的表。
 1. 创建部门表DEPARTMENTS,表空间：USERS。
 <pre>
 [oracle@deep02 ~]$ sqlplus llwaves/123@pdborcl
@@ -804,7 +804,7 @@ WITH A (EMPLOYEE_ID,NAME,EMAIL,PHONE_NUMBER,HIRE_DATE,SALARY,MANAGER_ID,DEPARTME
 SELECT * FROM A;
 </pre>
 ![](https://github.com/llwaves/oracle/blob/master/test4/4_2.PNG)
-9. 总结
+* 总结
 * 学会了部分存储过程和触发器的使用。
 * 学会了使用SQL语句Create Table创建表。
 * 学会了Select语句插入，修改，删除以及查询数据。
