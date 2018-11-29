@@ -75,7 +75,7 @@ CREATE or REPLACE PACKAGE BODY MyPack IS
 ...
 
 END MyPack;
-<pre>
+</pre>
 
 * 创建过程GET_EMPLOYEES，输出员工的ID,姓名，销售总金额。
 <pre>
@@ -104,6 +104,7 @@ PROCEDURE GET_EMPLOYEES(V_EMPLOYEE_ID NUMBER) --创建过程GET_EMPLOYEES
 
 END MyPack;
 </pre>
+* 测试语句
 <pre>
 set serveroutput on
 DECLARE
@@ -115,7 +116,7 @@ BEGIN
   MYPACK.Get_Employees (  V_EMPLOYEE_ID => V_EMPLOYEE_ID) ;    
 END;
 </pre>
-* 输出
+* 脚本输出
 <pre>
 1 李董事长 
     11 张总 35034887.23
