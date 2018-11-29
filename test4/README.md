@@ -569,8 +569,8 @@ Trigger ORDERS_TRIG_ROW_LEVEL 已编译。
 
 SQL> 
 </pre>
-7. 录入数据。要求至少有1万个订单，每个订单至少有4个详单。至少有两个部门，每个部门至少有1个员工，其中只有一个人没有领导，一个领导至少有一个下属，并且它的下属是另一个人的领导（比如A领导B，B领导C）。
-* 批量插入订单数据之前，禁用触发器.
+* 录入数据。要求至少有1万个订单，每个订单至少有4个详单。至少有两个部门，每个部门至少有1个员工，其中只有一个人没有领导，一个领导至少有一个下属，并且它的下属是另一个人的领导（比如A领导B，B领导C）。
+1. 批量插入订单数据之前，禁用触发器.
 <pre>
 [oracle@deep02 ~]$ sqlplus llwaves/123@pdborcl
 
@@ -633,7 +633,7 @@ Trigger "ORDER_DETAILS_SNTNS_TRIG"已变更。
 
 SQL> 
 </pre>
-* 创建序列SEQUENCE：SEQ_ORDER_ID、SEQ_ORDER_DETAILS_ID。
+2. 创建序列SEQUENCE：SEQ_ORDER_ID、SEQ_ORDER_DETAILS_ID。
 <pre>
 [oracle@deep02 ~]$ sqlplus llwaves/123@pdborcl
 
@@ -647,7 +647,7 @@ Sequence "SEQ_ORDER_DETAILS_ID" 已创建。
 
 SQL> 
 </pre>
-* 创建View：VIEW_ORDER_DETAILS。
+3. 创建View：VIEW_ORDER_DETAILS。
 <pre>
 [oracle@deep02 ~]$ sqlplus llwaves/123@pdborcl
 
@@ -666,7 +666,7 @@ View "VIEW_ORDER_DETAILS" 已创建。
 
 SQL> 
 </pre>
-* 插入DEPARTMENTS，EMPLOYEES数据。
+4. 插入DEPARTMENTS，EMPLOYEES数据。
 <pre>
 INSERT INTO DEPARTMENTS(DEPARTMENT_ID,DEPARTMENT_NAME) values (1,'总经办');
 INSERT INTO EMPLOYEES(EMPLOYEE_ID,NAME,EMAIL,PHONE_NUMBER,HIRE_DATE,SALARY,MANAGER_ID,DEPARTMENT_ID)
@@ -688,7 +688,7 @@ INSERT INTO EMPLOYEES(EMPLOYEE_ID,NAME,EMAIL,PHONE_NUMBER,HIRE_DATE,SALARY,MANAG
 INSERT INTO EMPLOYEES(EMPLOYEE_ID,NAME,EMAIL,PHONE_NUMBER,HIRE_DATE,SALARY,MANAGER_ID,DEPARTMENT_ID)
   VALUES (122,'刘经理',NULL,NULL,to_date('2010-1-1','yyyy-mm-dd'),50000,12,12);
 </pre>
-* 插入PRODUCTS数据。
+5. 插入PRODUCTS数据。
 <pre>
 insert into products (product_name,product_type) values ('computer1','电脑');
 insert into products (product_name,product_type) values ('computer2','电脑');
@@ -702,7 +702,7 @@ insert into products (product_name,product_type) values ('paper1','耗材');
 insert into products (product_name,product_type) values ('paper2','耗材');
 insert into products (product_name,product_type) values ('paper3','耗材');
 </pre>
-* 批量插入订单数据。注意ORDERS.TRADE_RECEIVABLE（订单应收款）的自动计算,注意插入数据的速度。1万条记录，插入的时间是：6.212秒。
+6. 批量插入订单数据。注意ORDERS.TRADE_RECEIVABLE（订单应收款）的自动计算,注意插入数据的速度。1万条记录，插入的时间是：6.212秒。
 <pre>
 declare
   dt date;
@@ -773,7 +773,7 @@ ALTER TRIGGER "ORDER_DETAILS_ROW_TRIG" ENABLE;
 
 Trigger "ORDER_DETAILS_ROW_TRIG"已变更。
 </pre>
-* 最后动态增加一个PARTITION_BEFORE_2018分区。
+7. 最后动态增加一个PARTITION_BEFORE_2018分区。
 <pre>
 ALTER TABLE ORDERS
 ADD PARTITION PARTITION_BEFORE_2018 VALUES LESS THAN (TO_DATE(' 2018-01-01 00:00:00', 'SYYYY-MM-DD HH24:MI:SS', 'NLS_CALENDAR=GREGORIAN'));
@@ -787,13 +787,13 @@ NOCOMPRESS;
 
 Index ORDERS_INDEX_DATE已变更。
 </pre>
-8. 执行测试。
-* 查询某个订单的信息。
+* 执行测试。
+1. 查询某个订单的信息。
 <pre>
 select * from ORDERS where order_id=100;
 </pre>
 ![](https://github.com/llwaves/oracle/blob/master/test4/4_1.PNG)
-* 递归查询某个员工及其所有下属，子下属员工。
+2. 递归查询某个员工及其所有下属，子下属员工。
 <pre>
 WITH A (EMPLOYEE_ID,NAME,EMAIL,PHONE_NUMBER,HIRE_DATE,SALARY,MANAGER_ID,DEPARTMENT_ID) AS
   (SELECT EMPLOYEE_ID,NAME,EMAIL,PHONE_NUMBER,HIRE_DATE,SALARY,MANAGER_ID,DEPARTMENT_ID
@@ -805,7 +805,7 @@ SELECT * FROM A;
 </pre>
 ![](https://github.com/llwaves/oracle/blob/master/test4/4_2.PNG)
 * 总结
-* 学会了部分存储过程和触发器的使用。
-* 学会了使用SQL语句Create Table创建表。
-* 学会了Select语句插入，修改，删除以及查询数据。
-* 学会了使用SQL语句创建视图。
+1. 学会了部分存储过程和触发器的使用。
+2. 学会了使用SQL语句Create Table创建表。
+3. 学会了Select语句插入，修改，删除以及查询数据。
+4. 学会了使用SQL语句创建视图。
