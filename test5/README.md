@@ -42,7 +42,7 @@ END MyPack;
 * 测试语句
 <pre>
 SELECT count(*) FROM orders;
-SELECT MyPack.Get_SaleAmount(11) AS 部门11应收金额,MyPack.Get_SaleAmount(12) AS 部门12应收金额 FROM dual;
+SELECT MyPack.Get_SaleAmount_Department (11) AS 部门11应收金额,MyPack.Get_SaleAmount_Department (12) AS 部门12应收金额 FROM dual;
 </pre>
 * 脚本输出
 <pre>
