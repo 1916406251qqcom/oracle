@@ -793,6 +793,7 @@ Index ORDERS_INDEX_DATE已变更。
 select * from ORDERS where order_id=100;
 </pre>
 ![](https://github.com/llwaves/oracle/blob/master/test4/4_1.PNG)
+
 2. 递归查询某个员工及其所有下属，子下属员工。
 <pre>
 WITH A (EMPLOYEE_ID,NAME,EMAIL,PHONE_NUMBER,HIRE_DATE,SALARY,MANAGER_ID,DEPARTMENT_ID) AS
